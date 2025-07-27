@@ -1,0 +1,251 @@
+% Hong Kong Baptist University beamer presentation theme
+%
+% Zhao Zhan <zhaozhan.site@gmail.com>, 2025
+% https://github.com/Extious/HKBU-presentation-Beamer
+%
+% Version 2.1: Clean, modern, and readable design.
+
+\ProvidesPackage{beamerthemeHKBU}[2025/07/27 v2.1]
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Required Packages
+%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\RequirePackage{calc}
+\RequirePackage{pifont}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Color Definitions
+%%%%%%%%%%%%%%%%%%%%%%%
+% HKBU Brand Colors
+\definecolor{HKBUMaize}{RGB}{0, 149, 182}      % Primary blue
+\definecolor{HKBUBlue}{RGB}{0, 100, 120}       % Darker blue
+\definecolor{HKBULight}{RGB}{200, 230, 240}    % Light blue
+\definecolor{HKBUGray}{RGB}{100, 100, 100}     % Gray for text
+\definecolor{HKBULightGray}{RGB}{240, 240, 240} % Light gray
+\definecolor{HKBUFootcolor}{RGB}{100, 100, 100} % Footer text color
+
+% Define horizontal gradient shading effects
+\pgfdeclarehorizontalshading{doubleShade}
+  {1.5pt}{color(0cm)=(white); color(.5\textwidth)=(gray); color(\textwidth)=(white)}
+\pgfdeclarehorizontalshading{singleShade}
+  {.5pt}{color(0cm)=(gray); color(.8\textwidth)=(gray); color(\textwidth)=(white)}
+\pgfdeclarehorizontalshading{footShade}
+  {.75pt}{color(0cm)=(gray); color(.8\textwidth)=(white); color(\textwidth)=(gray)}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Font Theme
+%%%%%%%%%%%%%%%%%%%%%%%
+\usefonttheme{professionalfonts}
+
+% Ensure font variants and encoding
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\renewcommand{\rmdefault}{lmv}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+
+% Font settings
+\setbeamerfont{title}{size=\Large,family=\sffamily,series=\bfseries}
+\setbeamerfont{subtitle}{size=\large,series=\normalfont}
+\setbeamerfont{author}{size=\normalsize,family=\sffamily,shape=\itshape}
+\setbeamerfont{institute}{series=\bfseries,size=\small,family=\sffamily,shape=\slshape}
+\setbeamerfont{date}{size=\scriptsize,family=\sffamily,shape=\upshape}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{section title}{size=\Large,series=\bfseries}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Color Theme
+%%%%%%%%%%%%%%%%%%%%%%%
+\usecolortheme[named=HKBUMaize]{structure}
+\usecolortheme{rose}
+
+% Structure colors
+\setbeamercolor{structure}{fg=HKBUMaize,bg=white}
+\setbeamercolor{title}{fg=white,bg=HKBUMaize}
+\setbeamercolor{subtitle}{fg=HKBUBlue,bg=white}
+\setbeamercolor{author}{fg=HKBUBlue,bg=white}
+\setbeamercolor{institute}{fg=HKBUGray,bg=white}
+\setbeamercolor{date}{fg=HKBUGray,bg=white}
+\setbeamercolor{frametitle}{fg=HKBUMaize,bg=white}
+\setbeamercolor{section title}{fg=white,bg=HKBUMaize}
+
+% Text colors
+\setbeamercolor{normal text}{fg=HKBUBlue,bg=white}
+\setbeamercolor{alerted text}{fg=HKBUMaize,bg=white}
+\setbeamercolor{example text}{fg=HKBUBlue,bg=white}
+
+% Item colors
+\setbeamercolor{item}{fg=HKBUMaize,bg=white}
+\setbeamercolor{subitem}{fg=HKBUBlue,bg=white}
+\setbeamercolor{subsubitem}{fg=HKBUGray,bg=white}
+
+% Block colors
+\setbeamercolor{block title}{fg=HKBUMaize,bg=HKBUMaize!15!white}
+\setbeamercolor{block body}{bg=HKBUMaize!5!white}
+\setbeamercolor{block title alerted}{fg=white,bg=red!70!black}
+\setbeamercolor{block body alerted}{fg=black,bg=red!10!white}
+\setbeamercolor{block title example}{fg=white,bg=HKBUBlue}
+\setbeamercolor{block body example}{fg=black,bg=HKBULight}
+
+% Navigation colors
+\setbeamercolor{navigation symbols}{fg=HKBUMaize,bg=white}
+\setbeamercolor{mini frame}{fg=HKBUMaize,bg=white}
+\setbeamercolor{mini frame in current subsection}{fg=white,bg=HKBUMaize}
+\setbeamercolor{mini frame in other subsection}{fg=HKBUGray,bg=white}
+\setbeamercolor{section in head/foot}{parent=palette tertiary, fg=HKBUMaize}
+\setbeamercolor{separator}{fg=HKBUMaize}
+\setbeamercolor{page number in head/foot}{bg=HKBUMaize!30!white,fg=HKBUMaize}
+\setbeamercolor{footline}{bg=HKBUMaize!30!white,fg=HKBUMaize}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Inner Theme
+%%%%%%%%%%%%%%%%%%%%%%%
+\useinnertheme{rounded}
+
+% Itemize template
+\setbeamertemplate{itemize items}{\ding{113}}
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{itemize subsubitem}[circle]
+
+% Enumerate template
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{enumerate subitem}[default]
+\setbeamertemplate{enumerate subsubitem}[default]
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Outer Theme
+%%%%%%%%%%%%%%%%%%%%%%%
+\useoutertheme{default}
+
+% Remove navigation symbols and default page numbers
+\setbeamertemplate{navigation symbols}{}
+
+% Frame title template
+\setbeamertemplate{frametitle}{
+\vskip-2pt\hskip-20pt\insertframetitle
+}
+
+% Section page template
+\setbeamertemplate{section page}{
+  \begin{center}
+    \begin{beamercolorbox}[sep=12pt,center,shadow=true,rounded=true]{section title}
+      \usebeamerfont{section title}\insertsection\par
+    \end{beamercolorbox}
+  \end{center}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Headline Template
+%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{headline}{%
+\hypersetup{linkcolor=.}
+\vskip1pt\hskip2pt%
+\insertsectionnavigationhorizontal{.5\textwidth}{\hskip0pt plus1filll}{}
+\vskip1pt\pgfuseshading{doubleShade}\vskip1pt%
+\vskip-10pt\hfill{\makebox[40pt][r]{\usebeamercolor[fg]{page number in head/foot}\large\insertframenumber/\inserttotalframenumber\hspace{4pt}}}
+}
+
+% Section and subsection in head/foot
+\setbeamertemplate{section in head/foot}{\insertsectionhead\space}
+\setbeamertemplate{subsection in head/foot}{\guillemotright\space\insertsubsectionhead}
+\setbeamertemplate{section in head/foot shaded}{\color{gray}\usebeamertemplate{section in head/foot}}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Footline Template
+%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{footline}{%
+\hypersetup{linkcolor=.}
+\hskip5pt\makebox[50pt][l]{\color{HKBUFootcolor}\insertshortauthor{ [}\insertshortinstitute{]}}\hfill\makebox[110pt][c]{\color{HKBUFootcolor}{\insertshorttitle}}\hfill\makebox[10pt][l]{\color{HKBUFootcolor}\insertshortdate}\hspace{28pt}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Title Page Template
+%%%%%%%%%%%%%%%%%%%%%%%
+\titlegraphic{
+  % \vspace{1em}
+  \includegraphics[height=2cm]{HKBU-emblem.png}
+}
+
+\setbeamertemplate{title page}{
+  \begin{center}
+    
+    \vspace{2em}
+    
+    % Title
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\inserttitle\par
+    \end{beamercolorbox}
+    
+    \vspace{1em}
+    
+    % Subtitle (if exists)
+    \ifx\insertsubtitle\@empty\else
+      \begin{beamercolorbox}[sep=4pt,center]{subtitle}
+        \usebeamerfont{subtitle}\insertsubtitle\par
+      \end{beamercolorbox}
+      \vspace{1em}
+    \fi
+    
+    % Author
+    \begin{beamercolorbox}[sep=4pt,center]{author}
+      \usebeamerfont{author}\insertauthor\par
+    \end{beamercolorbox}
+    
+    \vspace{0.5em}
+    
+    % Institute
+    \ifx\insertinstitute\@empty\else
+      \begin{beamercolorbox}[sep=4pt,center]{institute}
+        \usebeamerfont{institute}\insertinstitute\par
+      \end{beamercolorbox}
+      \vspace{0.5em}
+    \fi
+    
+    % Date
+    \begin{beamercolorbox}[sep=4pt,center]{date}
+      \usebeamerfont{date}\insertdate\par
+    \end{beamercolorbox}
+    
+    \vspace{2em}
+
+    % Logo
+    \inserttitlegraphic
+
+  \end{center}
+  
+  % Reset frame counter
+  \setcounter{framenumber}{0}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Block Templates
+%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Theorem Templates
+%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{theorem begin}{
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{block title}
+    \usebeamerfont{block title}\inserttheoremname%
+    \ifx\inserttheoremaddition\@empty\else~(\inserttheoremaddition)\fi
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[sep=8pt,shadow=true,rounded=true]{block body}
+}
+
+\setbeamertemplate{theorem end}{
+  \end{beamercolorbox}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography Template
+%%%%%%%%%%%%%%%%%%%%%%%
+\setbeamertemplate{bibliography item}[text]
+\setbeamercolor{bibliography item}{fg=HKBUMaize,bg=white}
+\setbeamercolor{bibliography entry author}{fg=HKBUBlue,bg=white}
+\setbeamercolor{bibliography entry title}{fg=black,bg=white}
+\setbeamercolor{bibliography entry location}{fg=HKBUGray,bg=white}
+\setbeamercolor{bibliography entry note}{fg=HKBUGray,bg=white}

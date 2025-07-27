@@ -1,0 +1,148 @@
+\documentclass[aspectratio=43]{beamer}
+\usetheme{HKBU}
+% Required packages
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{datetime}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{subfigure}
+\sloppy
+\usepackage[absolute,overlay]{textpos}
+
+% Graphics path
+\graphicspath{{Figures/}}
+
+% Custom command
+\def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
+\def\mydate{\the\year-\twodigits\month-\twodigits\day}
+\def\twodigits#1{\ifnum#1<10 0\fi\the#1}
+
+% Wider command for better text layout
+\newcommand\Wider[2][3em]{%
+  \makebox[\linewidth][c]{%
+    \begin{minipage}{\dimexpr\textwidth+#1\relax}%
+      \raggedright%
+      \centering#2%
+    \end{minipage}%
+  }%
+}
+
+% Document information
+\def\meetingname{HKBU Group Meeting}
+\title{Title: ...} % chktex 13
+% \subtitle{KV Cache Reuse for Recommendation Systems}
+\author[FN LN]{First name and Second nane}
+\institute[HKBU]{Hong Kong Baptist University}
+\date[\mydate]{\meetingname\\\today}
+
+% Suppress overfull hbox warnings from theme
+\hfuzz=100pt
+\hbadness=10000
+% Suppress overfull vbox warnings (too high)
+\vfuzz=100pt
+\vbadness=10000
+\emergencystretch=\maxdimen%
+
+\begin{document}
+
+% Title page
+\begin{frame}[plain]
+  \titlepage%
+\end{frame}
+
+% Table of contents
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+%------------------------------------------------------------
+\section{Introduction}
+%------------------------------------------------------------
+
+\begin{frame}{Introduction}
+  \begin{itemize}
+    \item First...
+    \item Second...
+  \end{itemize}
+\end{frame}
+
+%------------------------------------------------------------
+\section{Background and Motivation}
+%------------------------------------------------------------
+
+\begin{frame}{Background: Transformer Architecture}
+  \begin{itemize}
+    \item First...
+    \item \cite{NIPS2017_3f5ee243} shows that ...
+  \end{itemize}
+
+  \vspace{1cm}
+  \centering
+  \textcolor{red}{Figure: Transformer architecture}
+  \vspace{1cm}
+
+\end{frame}
+
+%------------------------------------------------------------
+
+\begin{frame}{Motivation}
+  \begin{enumerate}
+    \item \textbf{First}: ... is needed.
+    \item \textbf{Second}: ... is a challenge.
+  \end{enumerate}
+\end{frame}
+
+%------------------------------------------------------------
+\section{System Design}
+\subsection{System Overview}
+%------------------------------------------------------------
+
+\begin{frame}{System Overview}
+  \centering
+  \textcolor{red}{Figure: System Overview}
+\end{frame}
+
+%------------------------------------------------------------
+\subsection{Details}
+%------------------------------------------------------------
+
+\begin{frame}{Details}
+  \centering
+  \textcolor{red}{Figure: Details}
+\end{frame}
+
+%------------------------------------------------------------
+\section{Evaluation}
+%------------------------------------------------------------
+
+\begin{frame}{Evaluation}
+  \centering
+  \textcolor{red}{Detailed evaluation results will be presented}
+\end{frame}
+
+%------------------------------------------------------------
+% Questions slide
+%------------------------------------------------------------
+
+\begin{frame}
+  \centering
+  \Huge
+  \textbf{Thank You!}
+
+  \vspace{1em}
+  \Large
+  Questions are welcome.
+\end{frame}
+
+%------------------------------------------------------------
+% Bibliography
+%------------------------------------------------------------
+
+\bibliographystyle{IEEEtran}
+\bibliography{ref}
+
+\end{document}
